@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Result</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='spam-favicon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+    
+        <div class="container">
+			<h2 class='container-heading'><span>Spam Detector</span> for Short Message Service (SMS)</h2>
+	        	<div class='description'>
+				<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+			</div>
+		</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if result == 1 %}
+				<h1><b>Result : </b><span class='danger'><b>Oops!!! This is a SPAM Message.</b></span></h1>
+				<img class="gif" src="{{ url_for('static', filename='spam.webp') }}" alt="SPAM Image">
+			{% elif result == 0 %}
+				<h1><b>Result : </b>: <span class='safe'><b>Great!!! This is NOT a spam Message.</b></span></h1>
+				<img class="gif" src="{{ url_for('static', filename='not-spam.webp') }}" alt="Not a spam image">
+			{% endif %}
+		</div>
+
+    </body>
+</html>
